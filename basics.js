@@ -17,7 +17,7 @@ var observable = Rx.Observable.create(function (observer) {
   observer.next(42);
 
   // setTimeout(() => {
-  //   observer.next(300); // happens asynchronously
+  //   observer.next(300);
   // }, 1000);
 });
 
@@ -71,3 +71,43 @@ var observable = Rx.Observable.create(function subscribe(observer) {
 
 var unsubscribe = observable.subscribe(x => console.log(x));
 unsubscribe(); //clear the interval!
+
+// A Subject is like an Observable, but can multicast to many Observers. Subjects are like EventEmitters: they maintain a registry of many listeners.
+// Every Subject is an Observable and an Observer
+
+// You can subscribe to a subject just like any of Observable
+var subject = new Rx.Subject();
+
+subject.subscribe({
+  next: (v) => console.log('observerA: ' + v)
+});
+subject.subscribe({
+  next: (v) => console.log('observerB: ' + v)
+});
+
+// You can call next, error, and complete, just like any other Observer
+subject.next(1);
+subject.next(2);
+
+// A BehaviorSubject is a type of subject that keeps track of the latest value and sends it to any new Observers immediately
+var subject = new Rx.BehaviorSubject(0); // 0 is the initial value
+
+subject.subscribe({
+  next: (v) => console.log('observerA: ' + v)
+});
+
+subject.next(1);
+subject.next(2);
+
+subject.subscribe({
+  next: (v) => console.log('observerB: ' + v)
+});
+
+subject.next(3);
+// yields:
+// observerA: 0
+// observerA: 1
+// observerA: 2
+// observerB: 2
+// observerA: 3
+// observerB: 3
