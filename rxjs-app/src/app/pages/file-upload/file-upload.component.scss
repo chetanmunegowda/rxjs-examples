@@ -1,0 +1,30 @@
+.content {
+  display: flex;
+  flex-direction: row;
+
+  .file-picker {
+    flex: 1;
+
+    > div {
+      display: block;
+      position: relative;
+      padding-top: 100%;
+      > div {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0px;
+        right: 0px;
+        top: 0px;
+        bottom: 0px;
+      }
+    }
+  }
+
+  .file-results {
+    flex: 3;
+
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}

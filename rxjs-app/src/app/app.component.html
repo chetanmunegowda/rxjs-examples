@@ -1,0 +1,10 @@
+<div class="navigation">
+  <a [routerLink]="['/']" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+  <a [routerLink]="['/file-upload']" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }">File Upload</a>
+</div>
+
+<hr/>
+
+<div class="content">
+  <router-outlet></router-outlet>
+</div>

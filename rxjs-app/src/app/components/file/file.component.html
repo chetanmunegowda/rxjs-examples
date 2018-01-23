@@ -1,0 +1,6 @@
+<div class="file">
+  <div class="background"></div>
+  <div class="background loader" [ngStyle]="{ width: fileUpload?.progress?.percent + '%' }"></div>
+  {{ fileUpload?.file?.name }}
+  {{ fileUpload?.progress?.percent }}%
+</div>

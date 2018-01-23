@@ -1,0 +1,21 @@
+<h1>File Upload</h1>
+
+<div class="content">
+  <div class="file-picker">
+    <div>
+      <div>
+        <app-file-picker (filesPicked)="uploadFiles($event)"></app-file-picker>
+      </div>
+    </div>
+  </div>
+  <div class="file-results">
+    <div>
+      <div *ngIf="fileUploads.length === 0">
+        No Files Uploaded
+      </div>
+      <div *ngFor="let fileUpload of fileUploads">
+        <app-file [fileUpload]="(fileUpload | async)"></app-file>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<div class="uploader"
+     [ngClass]="{ 'dragged-over': draggedOver }"
+     (click)="clickWrapper($event, label)"
+     (drop)="filesDropped($event)"
+     (dragover)="dragIn($event)"
+     (dragenter)="dragIn($event)"
+     (dragleave)="dragOut($event)"
+     (dragend)="dragOut($event)">
+  <label #label (dragover)="draggedOver = true">
+    <input type="file" [multiple]="multiple" (change)="filesChanged($event)"/>
+  </label>
+  Drag and Drop
+</div>

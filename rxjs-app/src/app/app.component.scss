@@ -1,0 +1,30 @@
+.navigation {
+  display: flex;
+  flex-direction: row;
+
+  a {
+    margin: 15px;
+    padding: 15px;
+    display: block;
+
+    background: #fff;
+    color: #222;
+    font-family: Helvetica;
+    text-decoration: none;
+
+    -webkit-box-shadow: 2px 2px 15px 0px rgba(0,0,0,0.15);
+    -moz-box-shadow: 2px 2px 15px 0px rgba(0,0,0,0.15);
+    box-shadow: 2px 2px 15px 0px rgba(0,0,0,0.15);
+
+    &:hover, &.active {
+      background: #ff7d28;
+      color: #fff;
+    }
+  }
+}
+
+.content {
+  margin-top: 20px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
