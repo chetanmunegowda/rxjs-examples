@@ -1,0 +1,19 @@
+<h1><pre>.concatMap(project: function, resultSelector: function): Observable</pre></h1>
+
+<div class="content">
+  <div class="row">
+    <div class="code">
+      <app-typescript>//emit 'Hello' and 'Goodbye'
+const source = Rx.Observable.of('Hello', 'Goodbye');
+
+// map value from source into inner observable, when complete emit result and move to next
+const example = source.concatMap(val => Rx.Observable.of(`${{'{'}}val} World!`));
+
+//output: 'Example One: 'Hello World', Example One: 'Goodbye World'
+const subscribe = example.subscribe(val => console.log('Example One:', val));</app-typescript>
+    </div>
+    <div class="action">
+      // TODO:
+    </div>
+  </div>
+</div>

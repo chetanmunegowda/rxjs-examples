@@ -12,7 +12,7 @@ var y = fooFn.call(); // same as foo()
 console.log(y);
 
 // Observables are Push systems, the producer determines when to send the data
-var observable = Rx.Observable.create(function (observer) {
+var foo = Rx.Observable.create(function (observer) {
   console.log('Hello');
   observer.next(42);
 

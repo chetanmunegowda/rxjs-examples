@@ -1,0 +1,53 @@
+h1 {
+  width: calc(100vw - #{50}px);
+  overflow-x: auto;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+
+  > h1 {
+    pre {
+      margin: 0px;
+      padding: 0px;
+    }
+  }
+
+  .row {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 15px;
+
+    border-bottom: 1px solid #ccc;
+
+    padding-bottom: 15px;
+
+    &:last-of-type {
+      border-bottom: none;
+    }
+
+    .code {
+      flex: 2;
+      margin-right: 7.5px;
+
+      overflow-x: auto;
+
+      pre {
+        padding: 5px;
+        margin: 0px;
+        border: 1px solid #ccc;
+        background: #fff;
+      }
+    }
+
+    .action {
+      flex: 1;
+
+      margin-left: 7.5px;
+
+      font-family: Helvetica;
+      font-size: 22px;
+    }
+  }
+}

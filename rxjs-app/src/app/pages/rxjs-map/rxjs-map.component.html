@@ -1,0 +1,50 @@
+<h1><pre>.map(project: Function, thisArg: any): Observable</pre></h1>
+
+<div class="content">
+  <div class="row">
+    <div class="code">
+      <app-typescript>//emit (1,2,3,4,5)
+const source = Rx.Observable.from([1, 2, 3, 4, 5]);
+
+//add 10 to each value
+const example = source.map(val => val + 10);
+
+//output: 11,12,13,14,15
+const subscribe = example.subscribe(val => console.log(val));</app-typescript>
+    </div>
+    <div class="action">
+      For every event that comes in, the map function is fired and you can transform the value or object and return a new value or object.
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="code">
+      <app-typescript>//emit ([{{'{'}} first: 'Randy', last: 'Groff' }, {{'{'}} first: 'John', last: 'McEntee' }])
+const people = Rx.Observable.from([{{'{'}} first: 'Randy', last: 'Groff' }, {{'{'}} first: 'John', last: 'McEntee' }]);
+
+//create full name
+const fullnames = people.map(person => `${{'{'}}person.first} ${{'{'}}person.last}`);
+
+//output: Randy Groff, John McEntee
+const subscribe = fullnames.subscribe(fullname => console.log(fullname));</app-typescript>
+    </div>
+    <div class="action">
+      You can even change the type of object the resulting observable would return.
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="code">
+      <app-typescript>const people = Rx.Observable.from([{{'{'}} first: 'Randy', last: 'Groff', birthday: '1990-11-05' }, {{'{'}} first: 'John', last: 'McEntee', birthday: '1901-04-01' }]);
+
+//create with birthdays
+const parsedPeople = people.map(person => Object.assign({{'{'}}}, person, {{'{'}} birthday: moment(person.birthday, 'YYYY-MM-DD') }));
+
+//output: 1990, 1901
+const subscribe = parsedPeople.subscribe(person => console.log(person.birthday.format('YYYY')));</app-typescript>
+    </div>
+    <div class="action">
+      You can also manipulate the objects that come in, but it is always advised to not mutate the original object. Rather, create a new object and assign the properties to it.
+    </div>
+  </div>
+</div>
